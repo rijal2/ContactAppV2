@@ -1,4 +1,4 @@
-const { simpanContact } = require('./contacts')
+const simpanContact = require('./contacts')
 
 const yargs = require("yargs");
 

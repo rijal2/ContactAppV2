@@ -22,7 +22,8 @@ const simpanContact = (nama, email, noHP) => {
     // Cek kontak
     const duplikat = contacts.find((contact) => contact.nama === nama);
     if(duplikat){
-        console.log(`Data dengan nama ${nama} sudah ada. Silahkan masukkan dengan nama lain`)
+        console.log(`Data dengan nama ${nama} sudah ada. Silahkan masukkan dengan nama lain`);
+        return false
     }
 
 

@@ -1,4 +1,5 @@
-const { string } = require("yargs");
+const { simpanContact } = require('./contacts')
+
 const yargs = require("yargs");
 
 yargs.command({
@@ -20,6 +21,12 @@ yargs.command({
             demandOption: true,
             type: 'string',
         }
+    },
+    handler(argv) {
+        
+        simpanContact(argv.nama, argv.email, argv.noHP);
     }
 })
+
+yargs.parse();
 

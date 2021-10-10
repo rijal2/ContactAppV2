@@ -34,6 +34,13 @@ const simpanContact = (nama, email, noHP) => {
     const file = fs.readFileSync('data/contacts.json', 'utf-8')
     const contacts = JSON.parse(file)
 
+    // Cek kontak
+    const duplikat = contacts.find((contact) => contact.nama === nama);
+    if(duplikat){
+        console.log(`Data dengan nama ${nama} sudah ada. Silahkan masukkan dengan nama lain`)
+    }
+
+
     contacts.push(contact)
     
     fs.writeFileSync('data/contacts.json', JSON.stringify(contacts))

@@ -1,10 +1,5 @@
 const fs = require('fs');
 
-const readline = require('readline')
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout,
-})
 
 // Membaca atau mencari folder data apakah ada atau tidak menggunakan fs.existSync, jika tidak ada maka buat menggunakan fs.mkdirSync
 const folder = './data'
@@ -16,16 +11,6 @@ if(!fs.existsSync(folder)){
 const file = './data/contacts.json'
 if(!fs.existsSync(file)){
     fs.writeFileSync(file, '[]', 'utf-8')
-}
-
-const buatPertanyaan = (pertanyaan) => {
-    return new Promise((resolve, reject) => {
-        rl.question(pertanyaan, (nama) => {
-            resolve(nama);
-        })
-
-    })
-
 }
 
 
@@ -45,7 +30,7 @@ const simpanContact = (nama, email, noHP) => {
     
     fs.writeFileSync('data/contacts.json', JSON.stringify(contacts))
     console.log('Terimakasih sudah mengisi data')
-    rl.close();
+    
 }
 
-module.exports = {buatPertanyaan, simpanContact}
+module.exports = simpanContact;
